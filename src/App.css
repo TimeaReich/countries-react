@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+  width: 100%;
+}
+.App {
+  text-align: left;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.App-header {
+  text-align: left;
+  font-family: "Nunito Sans", sans-serif;
+  background-color: hsl(0, 0%, 100%);
+  font-weight: 800;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  color: rgb(0, 0, 0);
+  padding: 1rem 2rem;
+}
+.Body {
+  background-color: hsl(0, 0%, 98%);
+}
+.Card-container {
+  background-color: hsl(0, 0%, 98%);
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Card {
+  flex: 1 0 20%;
+  background-color: #fff;
+  color: hsl(0, 0%, 52%);
+  text-align: left;
+  width: auto;
+  height: 400px;
+  margin: 1rem;
+}
+.flag-container {
+  height: 50%;
+  width: auto;
+}
+.text-container {
+  height: 50%;
+}
+img {
+  height: 100%;
+  object-fit: cover;
+}
+h3 {
+  font-weight: 600;
+}
+.icon {
+  width: 50px;
+  height: 50px;
+  color: #000;
+}
+.search-bar {
+  background-color: #fff;
+  padding: 1rem 2rem;
+  width: 350px;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 2px 5px 10px rgb(0, 0, 0, 10%);
+}
+.search-bar-container {
+  display: inline;
+}
