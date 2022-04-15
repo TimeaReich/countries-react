@@ -5,26 +5,55 @@
 .App {
   text-align: left;
   font-family: "Nunito Sans", sans-serif;
+  background-color: hsl(0, 0%, 98%);
 }
-
+.dark-App {
+  text-align: left;
+  font-family: "Nunito Sans", sans-serif;
+  background-color: hsl(207, 26%, 17%);
+  color: #fff;
+}
 .App-header {
   text-align: left;
   font-family: "Nunito Sans", sans-serif;
   background-color: hsl(0, 0%, 100%);
-  font-weight: 800;
-  font-size: 24px;
   display: flex;
-  flex-direction: column;
-  align-items: left;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
   color: rgb(0, 0, 0);
   padding: 1rem 2rem;
 }
-.Body {
+h2 {
+  font-weight: 800;
+  font-size: 24px;
+}
+.dark-light-switch-button {
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.dark-light-switch-button :hover {
   background-color: hsl(0, 0%, 98%);
 }
-.Card-container {
+
+.dark-mode-button {
+  border: none;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card-container {
   background-color: hsl(0, 0%, 98%);
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.dark-card-container {
+  background-color: hsl(207, 26%, 17%);
   padding: 2rem;
   display: flex;
   flex-wrap: wrap;
@@ -38,6 +67,7 @@
   width: auto;
   height: 400px;
   margin: 1rem;
+  box-shadow: 2px 5px 10px rgb(0, 0, 0, 10%);
 }
 .flag-container {
   height: 50%;
@@ -45,6 +75,7 @@
 }
 .text-container {
   height: 50%;
+  padding-left: 1rem;
 }
 img {
   height: 100%;
@@ -52,6 +83,7 @@ img {
 }
 h3 {
   font-weight: 600;
+  color: #000;
 }
 .icon {
   width: 50px;
@@ -66,6 +98,19 @@ h3 {
   border-radius: 2px;
   box-shadow: 2px 5px 10px rgb(0, 0, 0, 10%);
 }
+.search-icon {
+  margin-left: 4rem;
+  padding-top: 13px;
+  width: 50px;
+  height: 48px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 2px 5px 10px rgb(0, 0, 0, 10%);
+}
 .search-bar-container {
-  display: inline;
+  display: flex;
+  width: 500px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  margin-top: 1rem;
 }

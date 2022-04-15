@@ -1,18 +1,30 @@
 import React from "react";
-//import {} from "@fortawesome/react-fontawesome";
-// import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell } from "@fortawesome/free-regular-svg-icons";
 
-const SearchBar = () => {
+const SearchBar = (props) => {
+  const handleSearchInput = (event) => {
+    let searchWord = event.target.value.toUpperCase();
+    const filter = props.countryData.filter((item) => {
+      return item.name.toUpperCase().includes(searchWord);
+    });
+    return props.setFilterCountry(filter);
+  };
+
   return (
     <div className="search-bar-container">
-      <input
-        type="text"
-        className="search-bar"
-        placeholder="Search for a country..."
-      ></input>
-      <FontAwesomeIcon icon={faBell} />
+      <div className="search-icon">
+        <FontAwesomeIcon icon={faBell} />
+      </div>
+      <div>
+        <input
+          id="country-search"
+          type="text"
+          className="search-bar"
+          placeholder="Search for a country..."
+          onChange={handleSearchInput}
+        ></input>
+      </div>
     </div>
   );
 };

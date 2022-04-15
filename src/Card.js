@@ -1,15 +1,7 @@
-import React, { useState, useEffect } from "react";
-//import { Data } from "./Countries";
+import React from "react";
 
-const Card = () => {
-  const [countryData, setCountryData] = useState([]);
-  useEffect(() => {
-    fetch("https://restcountries.com/v2/all")
-      .then((res) => res.json())
-      .then((data) => setCountryData(data));
-  }, []);
-
-  return countryData.map((item) => {
+const Card = (props) => {
+  return props.countryData.map((item) => {
     return (
       <div className="Card">
         <div className="flag-container">
