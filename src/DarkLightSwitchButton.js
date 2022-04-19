@@ -5,7 +5,7 @@ import { faMoon } from "@fortawesome/free-regular-svg-icons";
 const DarkLightSwitchButton = (props) => {
   return (
     <button
-      className="dark-mode-button"
+      className={props.darkMode ? "dark-mode-button-dark" : "dark-mode-button"}
       onClick={() => {
         props.setDarkMode(!props.darkMode);
       }}

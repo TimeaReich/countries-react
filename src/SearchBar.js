@@ -13,14 +13,14 @@ const SearchBar = (props) => {
 
   return (
     <div className="search-bar-container">
-      <div className="search-icon">
+      <div className={props.darkMode ? "dark-search-icon" : "search-icon"}>
         <FontAwesomeIcon icon={faBell} />
       </div>
       <div>
         <input
           id="country-search"
           type="text"
-          className="search-bar"
+          className={props.darkMode ? "dark-search-bar" : "search-bar"}
           placeholder="Search for a country..."
           onChange={handleSearchInput}
         ></input>
