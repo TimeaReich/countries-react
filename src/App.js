@@ -15,7 +15,7 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [countryData, setCountryData] = useState([]);
   const [filterCountry, setFilterCountry] = useState([]);
-
+  const [selectedRegion, setSelectedRegion] = useState("");
   return (
     <div className={darkMode ? "dark-App" : "App"}>
       <header className={darkMode ? "dark-app-header" : "app-header"}>
@@ -29,12 +29,15 @@ function App() {
       </header>
       <div className="search-container">
         <SearchBar
+          selectedRegion={selectedRegion}
           darkMode={darkMode}
           countryData={countryData}
           setCountryData={setCountryData}
           setFilterCountry={setFilterCountry}
         />
         <FilterByRegion
+          selectedRegion={selectedRegion}
+          setSelectedRegion={setSelectedRegion}
           setFilterCountry={setFilterCountry}
           darkMode={darkMode}
           countryData={countryData}

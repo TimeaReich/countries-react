@@ -1,26 +1,55 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 const FilterByRegion = (props) => {
-  const [selectedRegion, setSelectedRegion] = useState("");
+  const regions = [];
+  props.countryData.filter((item) => {
+    if (!regions.includes(item.region)) {
+      regions.push(item.region);
+    }
+    return regions;
+  });
+  regions.sort((a, b) => {
+    return a > b ? 1 : a < b ? -1 : 0;
+  });
+  // const [selectedRegion, setSelectedRegion] = useState("");
+  //console.log(selectedRegion);
+  console.log(props.selectedRegion);
 
   const regionSelect = (e) => {
-    setSelectedRegion(e.target.value);
-
-    const filter = props.countryData.filter((item) => {
-      return item.region === selectedRegion;
-    });
-    console.log(filter);
-    return props.setFilterCountry(filter);
+    props.setSelectedRegion(e.target.value);
+    props.setFilterCountry(
+      props.countryData.filter((item) => {
+        return item.region
+          .toUpperCase()
+          .includes(props.selectedRegion.toUpperCase());
+      })
+    );
   };
+  useEffect(() => {
+    let filter = props.countryData.filter((item) => {
+      return item.region
+        .toUpperCase()
+        .includes(props.selectedRegion.toUpperCase());
+    });
+    props.setFilterCountry(filter);
+  }, [props.selectedRegion]);
+
+  console.log(props.selectedRegion);
+  // const filter = props.countryData.filter((item) => {
+  //   return item.region.toLowerCase() === selectedRegion.toLowerCase();
+  // });
+  // console.log(filter);
+  // props.setFilterCountry(filter);
 
   return (
     <div className={props.darkMode ? "dark-custom-select" : "custom-select"}>
       <select onChange={regionSelect}>
-        <option value="">Filter by Region...</option>
-        <option value="Africa">Africa</option>
-        <option value="America">America</option>
-        <option value="Asia">Asia</option>
-        <option value="Europe">Europe</option>
-        <option value="Oceania">Oceania</option>
+        {regions.map((item) => {
+          return (
+            <option key={item} value={item}>
+              {item}
+            </option>
+          );
+        })}
       </select>
     </div>
   );

@@ -6,7 +6,16 @@ const SearchBar = (props) => {
   const handleSearchInput = (event) => {
     let searchWord = event.target.value.toUpperCase();
     const filter = props.countryData.filter((item) => {
-      return item.name.toUpperCase().includes(searchWord);
+      return (
+        (item.region
+          .toUpperCase()
+          .includes(props.selectedRegion.toUpperCase()) &&
+          item.name.toUpperCase().includes(searchWord)) ||
+        (item.region
+          .toUpperCase()
+          .includes(props.selectedRegion.toUpperCase()) &&
+          item.capital?.toUpperCase().includes(searchWord))
+      );
     });
     return props.setFilterCountry(filter);
   };
