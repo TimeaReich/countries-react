@@ -33,13 +33,6 @@ const FilterByRegion = (props) => {
     props.setFilterCountry(filter);
   }, [props.selectedRegion]);
 
-  console.log(props.selectedRegion);
-  // const filter = props.countryData.filter((item) => {
-  //   return item.region.toLowerCase() === selectedRegion.toLowerCase();
-  // });
-  // console.log(filter);
-  // props.setFilterCountry(filter);
-
   return (
     <div className={props.darkMode ? "dark-custom-select" : "custom-select"}>
       <select onChange={regionSelect}>

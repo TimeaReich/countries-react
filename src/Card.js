@@ -1,18 +1,38 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Card = (props) => {
-  return props.countryData.map((item) => {
+  const onClickSelect = (item) => {
+    props.setClickedCountry(true);
+    props.setSelectedCountry(item);
+  };
+  return props.countryData.map((item, index) => {
     return (
-      <div className={props.darkMode ? "dark-card" : "card"}>
-        <div className="flag-container">
-          <img alt="country flag" src={item.flag}></img>
-        </div>
-        <div className="text-container">
-          <h3 className={props.darkMode ? "dark-h3" : "h3"}>{item.name}</h3>
-          <p>Population: {item.population}</p>
-          <p>Region: {item.region}</p>
-          <p>Capital: {item.capital}</p>
-        </div>
+      <div
+        key={index}
+        onClick={onClickSelect.bind(null, item)}
+        className={props.darkMode ? "dark-card" : "card"}
+      >
+        <Link to={`/country/${item.name}`}>
+          <div className="flag-container">
+            <img alt="country flag" src={item.flag}></img>
+          </div>
+          <div className="text-container">
+            <h3 className={props.darkMode ? "dark-h3" : "h3"}>{item.name}</h3>
+            <p>
+              <span className="bold-paragraph">Population: </span>
+              {item.population}
+            </p>
+            <p>
+              <span className="bold-paragraph">Region: </span>
+              {item.region}
+            </p>
+            <p>
+              <span className="bold-paragraph">Capital: </span>
+              {item.capital}
+            </p>
+          </div>
+        </Link>
       </div>
     );
   });
