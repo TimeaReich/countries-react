@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+
+
 const FilterByRegion = (props) => {
   const regions = [];
   props.countryData.filter((item) => {
@@ -10,8 +12,7 @@ const FilterByRegion = (props) => {
   regions.sort((a, b) => {
     return a > b ? 1 : a < b ? -1 : 0;
   });
-  // const [selectedRegion, setSelectedRegion] = useState("");
-  //console.log(selectedRegion);
+
   console.log(props.selectedRegion);
 
   const regionSelect = (e) => {
