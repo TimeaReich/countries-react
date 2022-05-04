@@ -2,7 +2,6 @@ import "./App.css";
 import Card from "./Card";
 import SearchBar from "./SearchBar";
 import React, { useState, useEffect } from "react";
-import DarkLightSwitchButton from "./DarkLightSwitchButton";
 import FilterByRegion from "./FIlterByRegion";
 import CountryDetail from "./CountryDetail";
 import Header from "./Header";
@@ -21,7 +20,6 @@ function App() {
   const [selectedRegion, setSelectedRegion] = useState("");
   const [clickedCountry, setClickedCountry] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState("");
-  console.log(selectedCountry);
 
   return (
     <Router>

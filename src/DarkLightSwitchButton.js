@@ -11,7 +11,13 @@ const DarkLightSwitchButton = (props) => {
       }}
     >
       <FontAwesomeIcon icon={faMoon} />
-      <p>Dark Mode</p>
+      <p
+        className={
+          props.darkMode ? "dark-mode-button-dark" : "dark-mode-button"
+        }
+      >
+        Dark Mode
+      </p>
     </button>
   );
 };

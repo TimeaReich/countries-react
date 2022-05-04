@@ -17,18 +17,40 @@ const Card = (props) => {
           <div className="flag-container">
             <img alt="country flag" src={item.flag}></img>
           </div>
-          <div className="text-container">
+          <div
+            className={
+              props.darkMode ? "dark-text-container" : "text-container"
+            }
+          >
             <h3 className={props.darkMode ? "dark-h3" : "h3"}>{item.name}</h3>
             <p>
-              <span className="bold-paragraph">Population: </span>
+              <span
+                className={
+                  props.darkMode ? "dark-bold-paragraph" : "bold-paragraph"
+                }
+              >
+                Population:{" "}
+              </span>
               {item.population}
             </p>
             <p>
-              <span className="bold-paragraph">Region: </span>
+              <span
+                className={
+                  props.darkMode ? "dark-bold-paragraph" : "bold-paragraph"
+                }
+              >
+                Region:{" "}
+              </span>
               {item.region}
             </p>
             <p>
-              <span className="bold-paragraph">Capital: </span>
+              <span
+                className={
+                  props.darkMode ? "dark-bold-paragraph" : "bold-paragraph"
+                }
+              >
+                Capital:{" "}
+              </span>
               {item.capital}
             </p>
           </div>

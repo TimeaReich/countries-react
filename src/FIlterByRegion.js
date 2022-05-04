@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 
-
 const FilterByRegion = (props) => {
   const regions = [];
   props.countryData.filter((item) => {

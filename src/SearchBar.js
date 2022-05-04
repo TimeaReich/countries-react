@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBell } from "@fortawesome/free-regular-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const SearchBar = (props) => {
   const handleSearchInput = (event) => {
@@ -23,7 +23,7 @@ const SearchBar = (props) => {
   return (
     <div className="search-bar-container">
       <div className={props.darkMode ? "dark-search-icon" : "search-icon"}>
-        <FontAwesomeIcon icon={faBell} />
+        <FontAwesomeIcon icon={faMagnifyingGlass} />
       </div>
       <div>
         <input
