@@ -35,7 +35,6 @@ function App() {
                   selectedRegion={selectedRegion}
                   darkMode={darkMode}
                   countryData={countryData}
-                  setCountryData={setCountryData}
                   setFilterCountry={setFilterCountry}
                 />
                 <FilterByRegion

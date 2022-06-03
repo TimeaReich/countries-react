@@ -5,6 +5,11 @@ import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import Header from "./Header";
 
 const CountryDetail = (props) => {
+  const { selectedCountry, darkMode, setDarkMode } = props;
+  const isDarkModeParagraph = darkMode
+    ? "dark-bold-paragraph"
+    : "bold-paragraph";
+
   let borderCountries;
   if (props.selectedCountry.borders) {
     borderCountries = props.selectedCountry.borders.map((item) => {
@@ -15,20 +20,17 @@ const CountryDetail = (props) => {
   } else {
     borderCountries = "";
   }
-  const country = props.selectedCountry;
   return (
     <div
       className={
-        props.darkMode
-          ? "dark-country-detail-component"
-          : "country-detail-component"
+        darkMode ? "dark-country-detail-component" : "country-detail-component"
       }
     >
-      <Header darkMode={props.darkMode} setDarkMode={props.setDarkMode} />
+      <Header darkMode={darkMode} setDarkMode={setDarkMode} />
       <Link to="/">
         <div
           className={
-            props.darkMode ? "dark-back-btn-with-arrow" : "back-btn-with-arrow"
+            darkMode ? "dark-back-btn-with-arrow" : "back-btn-with-arrow"
           }
         >
           <span>
@@ -39,106 +41,56 @@ const CountryDetail = (props) => {
       </Link>
       <div className="country-detail-container">
         <div className="country-detail-flag">
-          <img src={country.flag} alt="flag"></img>
+          <img src={selectedCountry.flag} alt="flag"></img>
         </div>
         <div
           className={
-            props.darkMode ? "dark-country-detail-text" : "country-detail-text"
+            darkMode ? "dark-country-detail-text" : "country-detail-text"
           }
         >
-          <h2 className={props.darkMode ? "dark-h3" : "country-detail-header"}>
-            {country.name}
+          <h2 className={darkMode ? "dark-h3" : "country-detail-header"}>
+            {selectedCountry.name}
           </h2>
           <div className="country-detail-description">
             <p>
-              <span
-                className={
-                  props.darkMode ? "dark-bold-paragraph" : "bold-paragraph"
-                }
-              >
-                Native Name:{" "}
-              </span>
-              {country.nativeName}
+              <span className={isDarkModeParagraph}>Native Name: </span>
+              {selectedCountry.nativeName}
+            </p>
+            <p>
+              <span className={isDarkModeParagraph}>Population: </span>
+              {selectedCountry.population}
+            </p>
+            <p>
+              <span className={isDarkModeParagraph}>Region: </span>
+              {selectedCountry.region}
+            </p>
+            <p>
+              <span className={isDarkModeParagraph}>Sub Region: </span>
+              {selectedCountry.subregion}
             </p>
             <p>
               <span
-                className={
-                  props.darkMode ? "dark-bold-paragraph" : "bold-paragraph"
-                }
-              >
-                Population:{" "}
-              </span>
-              {country.population}
-            </p>
-            <p>
-              <span
-                className={
-                  props.darkMode ? "dark-bold-paragraph" : "bold-paragraph"
-                }
-              >
-                Region:{" "}
-              </span>
-              {country.region}
-            </p>
-            <p>
-              <span
-                className={
-                  props.darkMode ? "dark-bold-paragraph" : "bold-paragraph"
-                }
-              >
-                Sub Region:{" "}
-              </span>
-              {country.subregion}
-            </p>
-            <p>
-              <span
-                className={
-                  props.darkMode ? "dark-bold-paragraph" : "bold-paragraph"
-                }
+                className={darkMode ? "dark-bold-paragraph" : "bold-paragraph"}
               >
                 Capital:{" "}
               </span>
-              {country.capital}
+              {selectedCountry.capital}
             </p>
             <p>
-              <span
-                className={
-                  props.darkMode ? "dark-bold-paragraph" : "bold-paragraph"
-                }
-              >
-                Top Level Domain:{" "}
-              </span>
-              {country.topLevelDomain[0]}
+              <span className={isDarkModeParagraph}>Top Level Domain: </span>
+              {selectedCountry.topLevelDomain[0]}
             </p>
             <p>
-              <span
-                className={
-                  props.darkMode ? "dark-bold-paragraph" : "bold-paragraph"
-                }
-              >
-                Currencies:{" "}
-              </span>
-              {country.currencies[0].name}
+              <span className={isDarkModeParagraph}>Currencies: </span>
+              {selectedCountry.currencies[0].name}
             </p>
             <p>
-              <span
-                className={
-                  props.darkMode ? "dark-bold-paragraph" : "bold-paragraph"
-                }
-              >
-                Languages:{" "}
-              </span>
-              {country.languages.map((item) => `${item.name}, `)}
+              <span className={isDarkModeParagraph}>Languages: </span>
+              {selectedCountry.languages.map((item) => `${item.name}, `)}
             </p>
           </div>
           <div className="country-detail-border-countries">
-            <div
-              className={
-                props.darkMode ? "dark-bold-paragraph" : "bold-paragraph"
-              }
-            >
-              Border Countries:
-            </div>
+            <div className={isDarkModeParagraph}>Border Countries:</div>
 
             {borderCountries ? (
               borderCountries.map((item) => {
@@ -146,7 +98,7 @@ const CountryDetail = (props) => {
                   return (
                     <button
                       className={
-                        props.darkMode
+                        darkMode
                           ? "dark-country-detail-border-btn"
                           : "country-detail-border-btn"
                       }

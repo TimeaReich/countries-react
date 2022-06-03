@@ -3,21 +3,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon } from "@fortawesome/free-regular-svg-icons";
 
 const DarkLightSwitchButton = (props) => {
+  const isDarkMode = props.darkMode
+    ? "dark-mode-button-dark"
+    : "dark-mode-button";
   return (
     <button
-      className={props.darkMode ? "dark-mode-button-dark" : "dark-mode-button"}
+      className={isDarkMode}
       onClick={() => {
         props.setDarkMode(!props.darkMode);
       }}
     >
       <FontAwesomeIcon icon={faMoon} />
-      <p
-        className={
-          props.darkMode ? "dark-mode-button-dark" : "dark-mode-button"
-        }
-      >
-        Dark Mode
-      </p>
+      <p className={isDarkMode}>Dark Mode</p>
     </button>
   );
 };

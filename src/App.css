@@ -130,6 +130,7 @@ h2 {
 }
 .dark-text-container p {
   color: var(--white);
+  padding-left: 1rem;
 }
 img {
   height: 100%;
@@ -144,6 +145,7 @@ img {
   font-weight: 800;
   color: var(--white);
   font-size: 24px;
+  padding-left: 1rem;
 }
 .icon {
   width: 50px;

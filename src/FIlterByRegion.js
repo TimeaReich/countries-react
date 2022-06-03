@@ -12,8 +12,6 @@ const FilterByRegion = (props) => {
     return a > b ? 1 : a < b ? -1 : 0;
   });
 
-  console.log(props.selectedRegion);
-
   const regionSelect = (e) => {
     props.setSelectedRegion(e.target.value);
     props.setFilterCountry(
